@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class EmployeeReader {
-
     private String fileName;
     private EmployeeContainer employeeContainer;
 

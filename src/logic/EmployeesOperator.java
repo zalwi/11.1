@@ -6,13 +6,14 @@ import data.EmployeeContainer;
 import java.util.*;
 
 public class EmployeesOperator {
-    EmployeeContainer employeeContainer;
+    private EmployeeContainer employeeContainer;
 
     public EmployeesOperator(EmployeeContainer employeeContainer) {
         this.employeeContainer = employeeContainer;
     }
 
-    public void generateStats(){
+    public String generateStats(){
+        String content = "";
         ArrayList<Integer> salaries = new ArrayList<>();
         ArrayList<String> departments = new ArrayList<>();
         Set<String> uniqueDepartments = new TreeSet<>();
@@ -23,15 +24,16 @@ public class EmployeesOperator {
             uniqueDepartments.add(emp.getDepartment());
         }
 
-        System.out.println("Średnia wypłata: " + averageSalary());
-        System.out.println("Najmniejsza wypłata: " + Collections.min(salaries));
-        System.out.println("Największa wypłata: " + Collections.max(salaries));
-        System.out.println("Łączna liczba pracowników: " + salaries.size());
+        content += "Średnia wypłata: " + averageSalary() + "\n";
+        content += "Najmniejsza wypłata: " + Collections.min(salaries) + "\n";
+        content += "Największa wypłata: " + Collections.max(salaries) + "\n";
+        content += "Łączna liczba pracowników: " + salaries.size() + "\n";
 
         for(String uniqDep: uniqueDepartments){
-            System.out.println("Liczba pracowników w dziale " + uniqDep + ": " +
-                                Collections.frequency(departments,uniqDep));
+            content += "Liczba pracowników w dziale " + uniqDep + ": " +
+                                Collections.frequency(departments,uniqDep) + "\n";
         }
+        return content;
     }
 
     private int averageSalary(){

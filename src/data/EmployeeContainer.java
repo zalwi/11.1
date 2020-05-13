@@ -5,7 +5,7 @@ import data.Employee;
 import java.util.ArrayList;
 
 public class EmployeeContainer {
-    ArrayList<Employee> employees;
+    private ArrayList<Employee> employees;
 
     public EmployeeContainer() {
         this.employees = new ArrayList<>();
