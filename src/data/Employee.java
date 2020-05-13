@@ -15,6 +15,14 @@ public class Employee {
         this.salary     = Integer.parseInt(employeeInformations[4].toString());
     }
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

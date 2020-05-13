@@ -1,6 +1,6 @@
 package logic;
 
-import data.Employee;
+import data.EmployeeContainer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

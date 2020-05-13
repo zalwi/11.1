@@ -1,4 +1,4 @@
-package logic;
+package data;
 
 import data.Employee;
 
@@ -13,6 +13,10 @@ public class EmployeeContainer {
 
     public void addEmployee(String employeeLineInfo){
         employees.add(new Employee(employeeLineInfo.split(";")));
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return employees;
     }
 
     @Override
