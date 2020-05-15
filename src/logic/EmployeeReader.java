@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 public abstract class EmployeeReader {
 
-    public static void readEmployeesFromFile(String fileName, ArrayList<Employee> employees){
+    public static ArrayList<Employee> readEmployeesFromFile(String fileName){
+        ArrayList<Employee> employees = new ArrayList<>();
         try(
                 var fileReader = new FileReader(fileName);
                 var reader = new BufferedReader(fileReader);
@@ -21,5 +22,6 @@ public abstract class EmployeeReader {
         } catch(IOException e){
             e.printStackTrace();
         }
+        return employees;
     }
 }
