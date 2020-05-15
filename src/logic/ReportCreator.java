@@ -2,14 +2,9 @@ package logic;
 
 import java.io.*;
 
-public class StatisticsGenerator {
-    private String fileName;
+public abstract class ReportCreator {
 
-    public StatisticsGenerator(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public void generateReport(String content) {
+    public static void generateReport(String fileName, String content) {
         try (
                 var fileWriter = new FileWriter(fileName);
                 var writer = new BufferedWriter(fileWriter);

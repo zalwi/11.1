@@ -7,7 +7,7 @@ public class Employee {
     private String department;
     private int salary;
 
-    public Employee(Object[] employeeInformations) {
+    public Employee(String[] employeeInformations) {
         this.firstName  = employeeInformations[0].toString();
         this.lastName   = employeeInformations[1].toString();
         this.pesel      = employeeInformations[2].toString();

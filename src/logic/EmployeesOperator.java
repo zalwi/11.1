@@ -1,30 +1,23 @@
 package logic;
 
 import data.Employee;
-import data.EmployeeContainer;
-
 import java.util.*;
 
-public class EmployeesOperator {
-    private EmployeeContainer employeeContainer;
+public abstract class EmployeesOperator {
 
-    public EmployeesOperator(EmployeeContainer employeeContainer) {
-        this.employeeContainer = employeeContainer;
-    }
-
-    public String generateStats(){
+    public static String generateStats(ArrayList<Employee> employees){
         String content = "";
         ArrayList<Integer> salaries = new ArrayList<>();
         ArrayList<String> departments = new ArrayList<>();
         Set<String> uniqueDepartments = new TreeSet<>();
 
-        for(Employee emp: employeeContainer.getEmployees()){
+        for(Employee emp: employees){
             salaries.add(emp.getSalary());
             departments.add(emp.getDepartment());
             uniqueDepartments.add(emp.getDepartment());
         }
 
-        content += "Średnia wypłata: " + averageSalary() + "\n";
+        content += "Średnia wypłata: " + averageSalary(employees) + "\n";
         content += "Najmniejsza wypłata: " + Collections.min(salaries) + "\n";
         content += "Największa wypłata: " + Collections.max(salaries) + "\n";
         content += "Łączna liczba pracowników: " + salaries.size() + "\n";
@@ -36,11 +29,11 @@ public class EmployeesOperator {
         return content;
     }
 
-    private int averageSalary(){
+    private static int averageSalary(ArrayList<Employee> employees){
         int sum = 0;
-        for(Employee emp: employeeContainer.getEmployees()){
+        for(Employee emp: employees){
             sum += emp.getSalary();
         }
-        return (sum/employeeContainer.getEmployees().size());
+        return (sum/employees.size());
     }
 }
